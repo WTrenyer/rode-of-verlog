@@ -1,2 +1,1 @@
-# rode-of-verlog
-我的verlog学习之路
+VGA 显示字符和汉字
