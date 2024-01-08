@@ -11,7 +11,8 @@ module mid_uart_tx(
         output            out_tx
 //       , output uart_tx,back
     );
-    parameter LENGH = 11;
+    // parameter LENGH = 11;
+        parameter LENGH = 11;
     parameter DATA = 88'h69206C696B652046504741;
     
 reg btn0, btn1, btn2,btn_en;
@@ -101,14 +102,14 @@ reg btn0, btn1, btn2,btn_en;
     assign uart_tx = sending_data;
 //    module speed_setting
 //    #(
-//        parameter BPS_SET      =   96,  //²¨ÌØÂÊ
-//        parameter CLK_PERIORD  =   40   //Ê±ÖÓÖÜÆÚ40ns(25MHz)
+//        parameter BPS_SET      =   96,  //æ³¢ç‰¹ç‡
+//        parameter CLK_PERIORD  =   40   //æ—¶é’Ÿå‘¨æœŸ40ns(25MHz)
 //    )
 //    (
-//        input    clk,        //25MHzÖ÷Ê±ÖÓ
-//        input    rst_n,        //µÍµçÆ½¸´Î»ĞÅºÅ
-//        input    bps_start,    //½ÓÊÕµ½Êı¾İºó£¬²¨ÌØÂÊÊ±ÖÓÆô¶¯ĞÅºÅÖÃÎ»
-//        output    clk_bps        //clk_bpsµÄ¸ßµçÆ½Îª½ÓÊÕ»òÕß·¢ËÍÊı¾İÎ»µÄÖĞ¼ä²ÉÑùµã
+//        input    clk,        //25MHzä¸»æ—¶é’Ÿ
+//        input    rst_n,        //ä½ç”µå¹³å¤ä½ä¿¡å·
+//        input    bps_start,    //æ¥æ”¶åˆ°æ•°æ®åï¼Œæ³¢ç‰¹ç‡æ—¶é’Ÿå¯åŠ¨ä¿¡å·ç½®ä½
+//        output    clk_bps        //clk_bpsçš„é«˜ç”µå¹³ä¸ºæ¥æ”¶æˆ–è€…å‘é€æ•°æ®ä½çš„ä¸­é—´é‡‡æ ·ç‚¹
 //    );
     wire bps_start,clk_bps;
     speed_setting spd(
@@ -117,7 +118,7 @@ reg btn0, btn1, btn2,btn_en;
     .bps_start(bps_start),
     .clk_bps(clk_bps)
     );
-    	//UART·¢ËÍÊı¾İ´¦Àí
+    	//UARTå‘é€æ•°æ®å¤„ç†
 //module my_uart_tx
 //        (
 //            input            clk,
@@ -132,7 +133,7 @@ reg btn0, btn1, btn2,btn_en;
 
 my_uart_tx    my_uart_tx
 (        
-    .clk            (clk        ),    //·¢ËÍÊı¾İÄ£¿é
+    .clk            (clk        ),    //å‘é€æ•°æ®æ¨¡å—
     .rst          (rst      ),
     .back           (back),
     .tx_data        (uart_tx),
